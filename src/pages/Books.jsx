@@ -1,12 +1,21 @@
 import React, { useState } from "react";
-// import { books } from '../data'
+import { books } from '../data'
 import Book from "../components/ul/Book";
 
 const Books = ({ books: initialBooks }) => {
   const [books, setBooks] = useState(initialBooks);
 
-  function filterBooks() {
-    console.log('filter')
+  function filterBooks(filter) {
+    console.log(filter)
+    if (filter === 'Low_to_High') {
+        setBooks (books.slice().sort ((a, b) => (a.salePrice || a.OriginalPrice) - (b.salePrice || b.originalPrice)))
+    }
+    if (filter === 'High_to_Low') {
+        setBooks (books.slice().sort ((a, b) => (b.salePrice || b.originalPrice)- (a.salePrice ||a.originalPrice)))
+    };
+    if (filter === 'Rating') {
+        setBooks(books.slice().sort((a,b) => b.rating - a.rating))
+    }
   }
   return (
     <div id="books__body">
@@ -21,7 +30,7 @@ const Books = ({ books: initialBooks }) => {
                 <select
                   id="filter"
                   defaultValue="DEFAULT"
-                  onChange={filterBooks}
+                  onChange={(event) => {filterBooks(event.target.value)}}
                 >
                   <option value="DEFAULT" disabled>
                     Sort
