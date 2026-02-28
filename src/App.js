@@ -7,8 +7,11 @@ import Books from "./pages/Books";
 import { books } from "./data.js";
 import BookInfo from "./pages/BookInfo.jsx";
 import Cart from "./pages/Cart.jsx";
+import { useState } from "react";
 
 function App() {
+  const [cart, setCart] = useState([])
+  function changeQuantity(id, quantity) {}
   return (
     <Router>
       <div className="App">
