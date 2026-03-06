@@ -7,10 +7,20 @@ import Books from "./pages/Books";
 import { books } from "./data.js";
 import BookInfo from "./pages/BookInfo.jsx";
 import Cart from "./pages/Cart.jsx";
-import { useState } from "react";
+import react, { useState, useEffect } from "react";
 
 function App() {
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
+
+  function addToCart(book) {
+    setCart([...cart, book])
+  }
+
+  useEffect(() => {
+    console.log(cart)
+  }, [cart])
+
+
   function changeQuantity(id, quantity) {}
   return (
     <Router>
@@ -19,8 +29,17 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/books" exact element={<Books books={books} />} />
-          <Route path="/books/:id" exact element={<BookInfo books={books} />} />
-          <Route path="/cart" element={<Cart books={books} cart={cart} changeQuantity={changeQuantity} />} />
+          <Route
+            path="/books/:id"
+            exact
+            element={<BookInfo books={books} addToCart={addToCart} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              <Cart books={books} cart={cart} changeQuantity={changeQuantity} />
+            }
+          />
         </Routes>
         <Footer />
       </div>

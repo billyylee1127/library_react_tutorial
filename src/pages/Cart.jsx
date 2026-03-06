@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = ({cart, changeQuantity}) => {
+const Cart = ({ cart, changeQuantity }) => {
   return (
     <div id="books__body">
       <main id="books__main">
@@ -19,32 +19,45 @@ const Cart = ({cart, changeQuantity}) => {
                 <div className="cart__item">
                   <div className="cart__book">
                     <img
-                      src='"https://m.media-amazon.com/images/I/91nujEwIpYL._AC_UF1000,1000_QL80_.jpg"'
+                      src="https://m.media-amazon.com/images/I/91nujEwIpYL._AC_UF1000,1000_QL80_.jpg"
                       className="cart__book--img"
                       alt=""
                     />
                     <div className="cart__book--info">
-                        <span className="cart__book--title">Atomic Habits</span>
-                        <span className="cart__book--price">10</span>
-                        <button className="cart__book--remove">Remove</button>
+                      <span className="cart__book--title">Atomic Habits</span>
+                      <span className="cart__book--price">10</span>
+                      <button className="cart__book--remove">Remove</button>
                     </div>
                   </div>
                   <div className="cart__quantity">
-                    <input type="number" min={0} max={99} className="cart__input"/>
+                    <input
+                      type="number"
+                      min={0}
+                      max={99}
+                      className="cart__input"
+                    />
                   </div>
-                  <div className="cart__total">
-                    $99
-                  </div>
+                  <div className="cart__total">$10.00</div>
                 </div>
               </div>
             </div>
-            <div className="total__item total__sub-total">
+            <div className="total">
+              <div className="total__item total__sub-total">
                 <span>Subtotal</span>
-                <span>$9</span>
-            </div>
-            <div className="total__item total__tax">
+                <span>$9.00</span>
+              </div>
+              <div className="total__item total__tax">
                 <span>Tax</span>
-                <span>$.82</span>
+                <span>$1.00</span>
+              </div>
+              <div className="total__item total__price">
+                <span>Total</span>
+                <span>$10.00</span>
+              </div>
+              <button className="btn btn__checkout no-cursor"
+              onClick={() => alert(`Haven't got around to doing this :( `)}>
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </div>
