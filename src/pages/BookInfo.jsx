@@ -11,6 +11,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
   const [added, setAdded] = useState(false);
 
   function addBookToCart(book) {
+    setAdded(true);
     addToCart(book);
   }
 
@@ -62,7 +63,9 @@ const BookInfo = ({ books, addToCart, cart }) => {
                   </p>
                 </div>
                 {bookExistsOnCart() ? (
+                  <Link to={'/cart'} className="book__link">
                   <button className="btn">Checkout</button>
+                  </Link>
                 ) : (
                   <button className="btn" onClick={() => addBookToCart(book)}>
                     Add to Cart
