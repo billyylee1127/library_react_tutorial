@@ -10,6 +10,7 @@ const Book = ({ book }) => {
   const mountedRef = useRef(true);
 
   useEffect(() => {
+    mountedRef.current = true;
     const image = new Image();
     image.src = book.url;
     image.onload = () => {
@@ -17,7 +18,7 @@ const Book = ({ book }) => {
         if (mountedRef.current) {
           setImg(image);
         }
-      }, 300);
+      }, 300)
     };
     return () => {
       mountedRef.current = false;

@@ -8,7 +8,7 @@ const Books = ({ books: initialBooks }) => {
   function filterBooks(filter) {
     console.log(filter)
     if (filter === 'Low_to_High') {
-        setBooks (books.slice().sort ((a, b) => (a.salePrice || a.OriginalPrice) - (b.salePrice || b.originalPrice)))
+        setBooks (books.slice().sort ((a, b) => (a.salePrice || a.originalPrice) - (b.salePrice || b.originalPrice)))
     }
     if (filter === 'High_to_Low') {
         setBooks (books.slice().sort ((a, b) => (b.salePrice || b.originalPrice)- (a.salePrice ||a.originalPrice)))
